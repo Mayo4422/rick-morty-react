@@ -3,19 +3,10 @@ pipeline {
 
     tools {
         nodejs "NodeJS 24"
-    }
-
-    environment {
-        SONARQUBE = "SonarQube"
+        sonarScanner "SonarQube Scanner"
     }
 
     stages {
-
-        stage('Clonar repositorio') {
-            steps {
-                checkout scm
-            }
-        }
 
         stage('Instalar dependencias') {
             steps {
@@ -36,5 +27,6 @@ pipeline {
                 }
             }
         }
+
     }
 }
